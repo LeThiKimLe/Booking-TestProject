@@ -13,7 +13,6 @@ const convertDateFormat = (dateIn) => {
 
     // Format the date
     const formattedDate = `${date.toLocaleString('en-US', { weekday: 'long' })}, ${date.toLocaleString('en-US', { month: 'long' })} ${date.getDate()}${getOrdinalSuffix(date.getDate())}, ${date.getFullYear()}`;
-
     return formattedDate // Outputs: "Wednesday, January 11th, 2023"
 }
 
@@ -236,7 +235,6 @@ const UpdateBusState = async (driver, license, updateInfor) => {
 
 const AssignRouteBus = async (driver, license, route, subroute) => {
     try{
-        
         //Click on button "Xem chi tiết"
         const busButton = await driver.wait(until.elementLocated(By.xpath(`//div[contains(@class,'accordion-item') and @id = '${license}']`)), 5000);
         await driver.executeScript("arguments[0].scrollIntoView({block: 'center'});", busButton);

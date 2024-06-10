@@ -149,15 +149,11 @@ const BookingTicketUpFloor = async (driver, departure, destination, departDate, 
         //Choose Trip
         const chooseTripButton = await driver.findElement(By.xpath(`//div[h5[contains(text(), '${departTime}')]]`));
         await chooseTripButton.click();
-
         //Wait to load data
         // const loadingElement = await driver.wait(until.elementLocated(By.xpath("//div[contains(@class, 'spinner-border')]")), 5000);
         // await driver.wait(until.stalenessOf(loadingElement), 5000);
-
         await driver.sleep(3000);
-
         await driver.wait(until.elementLocated(By.xpath("//li[contains(@class, 'react-tabs__tab') and contains(text(),'Tầng trên')]"), 5000)).click();
-
         //Choose Seat
         for (let i = 0; i < listSeat.length; i++) {
             const seatButton = await driver.findElement(By.xpath(`//strong[contains(text(), '${listSeat[i]}')]/following-sibling::button`));
